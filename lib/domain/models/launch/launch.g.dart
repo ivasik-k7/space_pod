@@ -8,18 +8,21 @@ part of 'launch.dart';
 
 _$_Launch _$_$_LaunchFromJson(Map<String, dynamic> json) {
   return _$_Launch(
-    launchYear: json['launch_year'] as int,
-    flightNumber: json['flight_number'] as int,
-    isTentative: json['is_tentative'] as bool,
-    launchDate: json['launch_date_utc'] as int,
-    launchSucceed: json['launch_success'] as bool,
-    missionId:
-        (json['mission_id'] as List<dynamic>).map((e) => e as String).toList(),
-    missionName: json['mission_name'] as String,
-    links: LaunchLinks.fromJson(json['links'] as Map<String, dynamic>),
-    ships: (json['ships'] as List<dynamic>).map((e) => e as String).toList(),
-    details: json['details'] as String,
-    upcoming: json['upcoming'] as bool,
+    launchYear: json['launch_year'] as String?,
+    flightNumber: json['flight_number'] as int?,
+    isTentative: json['is_tentative'] as bool?,
+    launchDate: json['launch_date_utc'] as String?,
+    launchSucceed: json['launch_success'] as bool?,
+    missionId: (json['mission_id'] as List<dynamic>?)
+        ?.map((e) => e as String)
+        .toList(),
+    missionName: json['mission_name'] as String?,
+    links: json['links'] == null
+        ? null
+        : LaunchLinks.fromJson(json['links'] as Map<String, dynamic>),
+    ships: (json['ships'] as List<dynamic>?)?.map((e) => e as String).toList(),
+    details: json['details'] as String?,
+    upcoming: json['upcoming'] as bool?,
   );
 }
 

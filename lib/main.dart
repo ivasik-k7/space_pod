@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:space_pod/app.dart';
+
 import 'package:space_pod/di/config.dart' as config;
 
 void main(List<String> args) {
+  WidgetsFlutterBinding.ensureInitialized();
   config.setup();
-  runApp(const SpaceXApp());
+  runApp(ProviderScope(child: SpaceLaunch()));
 }

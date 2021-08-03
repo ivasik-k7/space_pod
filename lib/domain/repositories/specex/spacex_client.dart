@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
+import 'package:space_pod/domain/models/capsule/capsule.dart';
+import 'package:space_pod/domain/models/core/core.dart';
 import 'package:space_pod/domain/models/launch/launch.dart';
+import 'package:space_pod/domain/models/mission/service_mission.dart';
 
 part 'spacex_client.g.dart';
 
@@ -14,11 +17,12 @@ abstract class SpaceXClient {
   Future<List<Launch>> getLaunches(@Queries() Map<String, dynamic> queries);
 
   @GET('/capsules')
-  Future<dynamic> getCapsules(@Queries() Map<String, dynamic> queries);
+  Future<List<Capsule>> getCapsules(@Queries() Map<String, dynamic> queries);
 
   @GET('/cores')
-  Future<dynamic> getCores(@Queries() Map<String, dynamic> queries);
+  Future<List<Core>> getCores(@Queries() Map<String, dynamic> queries);
 
   @GET('/missions')
-  Future<dynamic> getMissions(@Queries() Map<String, dynamic> queries);
+  Future<List<ServiceMission>> getMissions(
+      @Queries() Map<String, dynamic> queries);
 }

@@ -1,26 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:space_pod/domain/repositories/specex/spacex.repository.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:space_pod/ui/views/splash.view.dart';
 
-class SpaceXApp extends StatelessWidget {
-  const SpaceXApp({Key? key}) : super(key: key);
-
+class SpaceLaunch extends HookConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      home: Scaffold(
-          body: IconButton(
-        onPressed: getLaunches,
-        icon: Icon(
-          Icons.ac_unit,
-        ),
-      )),
+      home: SplashView(),
     );
-  }
-
-  Future<dynamic> getLaunches() async {
-    final SpaceXRepository repo = SpaceXRepository();
-
-    final result = await repo.getLaunches({});
-    print(result);
   }
 }

@@ -21,17 +21,17 @@ class _$LaunchTearOff {
   const _$LaunchTearOff();
 
   _Launch call(
-      {@JsonKey(name: 'launch_year') required int launchYear,
-      @JsonKey(name: "flight_number") required int flightNumber,
-      @JsonKey(name: "is_tentative") required bool isTentative,
-      @JsonKey(name: "launch_date_utc") required int launchDate,
-      @JsonKey(name: "launch_success") required bool launchSucceed,
-      @JsonKey(name: "mission_id") required List<String> missionId,
-      @JsonKey(name: "mission_name") required String missionName,
-      required LaunchLinks links,
-      required List<String> ships,
-      required String details,
-      required bool upcoming}) {
+      {@JsonKey(name: 'launch_year') String? launchYear,
+      @JsonKey(name: "flight_number") int? flightNumber,
+      @JsonKey(name: "is_tentative") bool? isTentative,
+      @JsonKey(name: "launch_date_utc") String? launchDate,
+      @JsonKey(name: "launch_success") bool? launchSucceed,
+      @JsonKey(name: "mission_id") List<String>? missionId,
+      @JsonKey(name: "mission_name") String? missionName,
+      LaunchLinks? links,
+      List<String>? ships,
+      String? details,
+      bool? upcoming}) {
     return _Launch(
       launchYear: launchYear,
       flightNumber: flightNumber,
@@ -58,23 +58,23 @@ const $Launch = _$LaunchTearOff();
 /// @nodoc
 mixin _$Launch {
   @JsonKey(name: 'launch_year')
-  int get launchYear => throw _privateConstructorUsedError;
+  String? get launchYear => throw _privateConstructorUsedError;
   @JsonKey(name: "flight_number")
-  int get flightNumber => throw _privateConstructorUsedError;
+  int? get flightNumber => throw _privateConstructorUsedError;
   @JsonKey(name: "is_tentative")
-  bool get isTentative => throw _privateConstructorUsedError;
+  bool? get isTentative => throw _privateConstructorUsedError;
   @JsonKey(name: "launch_date_utc")
-  int get launchDate => throw _privateConstructorUsedError;
+  String? get launchDate => throw _privateConstructorUsedError;
   @JsonKey(name: "launch_success")
-  bool get launchSucceed => throw _privateConstructorUsedError;
+  bool? get launchSucceed => throw _privateConstructorUsedError;
   @JsonKey(name: "mission_id")
-  List<String> get missionId => throw _privateConstructorUsedError;
+  List<String>? get missionId => throw _privateConstructorUsedError;
   @JsonKey(name: "mission_name")
-  String get missionName => throw _privateConstructorUsedError;
-  LaunchLinks get links => throw _privateConstructorUsedError;
-  List<String> get ships => throw _privateConstructorUsedError;
-  String get details => throw _privateConstructorUsedError;
-  bool get upcoming => throw _privateConstructorUsedError;
+  String? get missionName => throw _privateConstructorUsedError;
+  LaunchLinks? get links => throw _privateConstructorUsedError;
+  List<String>? get ships => throw _privateConstructorUsedError;
+  String? get details => throw _privateConstructorUsedError;
+  bool? get upcoming => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -86,19 +86,19 @@ abstract class $LaunchCopyWith<$Res> {
   factory $LaunchCopyWith(Launch value, $Res Function(Launch) then) =
       _$LaunchCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'launch_year') int launchYear,
-      @JsonKey(name: "flight_number") int flightNumber,
-      @JsonKey(name: "is_tentative") bool isTentative,
-      @JsonKey(name: "launch_date_utc") int launchDate,
-      @JsonKey(name: "launch_success") bool launchSucceed,
-      @JsonKey(name: "mission_id") List<String> missionId,
-      @JsonKey(name: "mission_name") String missionName,
-      LaunchLinks links,
-      List<String> ships,
-      String details,
-      bool upcoming});
+      {@JsonKey(name: 'launch_year') String? launchYear,
+      @JsonKey(name: "flight_number") int? flightNumber,
+      @JsonKey(name: "is_tentative") bool? isTentative,
+      @JsonKey(name: "launch_date_utc") String? launchDate,
+      @JsonKey(name: "launch_success") bool? launchSucceed,
+      @JsonKey(name: "mission_id") List<String>? missionId,
+      @JsonKey(name: "mission_name") String? missionName,
+      LaunchLinks? links,
+      List<String>? ships,
+      String? details,
+      bool? upcoming});
 
-  $LaunchLinksCopyWith<$Res> get links;
+  $LaunchLinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -127,53 +127,57 @@ class _$LaunchCopyWithImpl<$Res> implements $LaunchCopyWith<$Res> {
       launchYear: launchYear == freezed
           ? _value.launchYear
           : launchYear // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       flightNumber: flightNumber == freezed
           ? _value.flightNumber
           : flightNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isTentative: isTentative == freezed
           ? _value.isTentative
           : isTentative // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       launchDate: launchDate == freezed
           ? _value.launchDate
           : launchDate // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       launchSucceed: launchSucceed == freezed
           ? _value.launchSucceed
           : launchSucceed // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       missionId: missionId == freezed
           ? _value.missionId
           : missionId // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       missionName: missionName == freezed
           ? _value.missionName
           : missionName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       links: links == freezed
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as LaunchLinks,
+              as LaunchLinks?,
       ships: ships == freezed
           ? _value.ships
           : ships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       details: details == freezed
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       upcoming: upcoming == freezed
           ? _value.upcoming
           : upcoming // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 
   @override
-  $LaunchLinksCopyWith<$Res> get links {
-    return $LaunchLinksCopyWith<$Res>(_value.links, (value) {
+  $LaunchLinksCopyWith<$Res>? get links {
+    if (_value.links == null) {
+      return null;
+    }
+
+    return $LaunchLinksCopyWith<$Res>(_value.links!, (value) {
       return _then(_value.copyWith(links: value));
     });
   }
@@ -185,20 +189,20 @@ abstract class _$LaunchCopyWith<$Res> implements $LaunchCopyWith<$Res> {
       __$LaunchCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'launch_year') int launchYear,
-      @JsonKey(name: "flight_number") int flightNumber,
-      @JsonKey(name: "is_tentative") bool isTentative,
-      @JsonKey(name: "launch_date_utc") int launchDate,
-      @JsonKey(name: "launch_success") bool launchSucceed,
-      @JsonKey(name: "mission_id") List<String> missionId,
-      @JsonKey(name: "mission_name") String missionName,
-      LaunchLinks links,
-      List<String> ships,
-      String details,
-      bool upcoming});
+      {@JsonKey(name: 'launch_year') String? launchYear,
+      @JsonKey(name: "flight_number") int? flightNumber,
+      @JsonKey(name: "is_tentative") bool? isTentative,
+      @JsonKey(name: "launch_date_utc") String? launchDate,
+      @JsonKey(name: "launch_success") bool? launchSucceed,
+      @JsonKey(name: "mission_id") List<String>? missionId,
+      @JsonKey(name: "mission_name") String? missionName,
+      LaunchLinks? links,
+      List<String>? ships,
+      String? details,
+      bool? upcoming});
 
   @override
-  $LaunchLinksCopyWith<$Res> get links;
+  $LaunchLinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -228,47 +232,47 @@ class __$LaunchCopyWithImpl<$Res> extends _$LaunchCopyWithImpl<$Res>
       launchYear: launchYear == freezed
           ? _value.launchYear
           : launchYear // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       flightNumber: flightNumber == freezed
           ? _value.flightNumber
           : flightNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isTentative: isTentative == freezed
           ? _value.isTentative
           : isTentative // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       launchDate: launchDate == freezed
           ? _value.launchDate
           : launchDate // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String?,
       launchSucceed: launchSucceed == freezed
           ? _value.launchSucceed
           : launchSucceed // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       missionId: missionId == freezed
           ? _value.missionId
           : missionId // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       missionName: missionName == freezed
           ? _value.missionName
           : missionName // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       links: links == freezed
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as LaunchLinks,
+              as LaunchLinks?,
       ships: ships == freezed
           ? _value.ships
           : ships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       details: details == freezed
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       upcoming: upcoming == freezed
           ? _value.upcoming
           : upcoming // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -277,50 +281,50 @@ class __$LaunchCopyWithImpl<$Res> extends _$LaunchCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Launch implements _Launch {
   const _$_Launch(
-      {@JsonKey(name: 'launch_year') required this.launchYear,
-      @JsonKey(name: "flight_number") required this.flightNumber,
-      @JsonKey(name: "is_tentative") required this.isTentative,
-      @JsonKey(name: "launch_date_utc") required this.launchDate,
-      @JsonKey(name: "launch_success") required this.launchSucceed,
-      @JsonKey(name: "mission_id") required this.missionId,
-      @JsonKey(name: "mission_name") required this.missionName,
-      required this.links,
-      required this.ships,
-      required this.details,
-      required this.upcoming});
+      {@JsonKey(name: 'launch_year') this.launchYear,
+      @JsonKey(name: "flight_number") this.flightNumber,
+      @JsonKey(name: "is_tentative") this.isTentative,
+      @JsonKey(name: "launch_date_utc") this.launchDate,
+      @JsonKey(name: "launch_success") this.launchSucceed,
+      @JsonKey(name: "mission_id") this.missionId,
+      @JsonKey(name: "mission_name") this.missionName,
+      this.links,
+      this.ships,
+      this.details,
+      this.upcoming});
 
   factory _$_Launch.fromJson(Map<String, dynamic> json) =>
       _$_$_LaunchFromJson(json);
 
   @override
   @JsonKey(name: 'launch_year')
-  final int launchYear;
+  final String? launchYear;
   @override
   @JsonKey(name: "flight_number")
-  final int flightNumber;
+  final int? flightNumber;
   @override
   @JsonKey(name: "is_tentative")
-  final bool isTentative;
+  final bool? isTentative;
   @override
   @JsonKey(name: "launch_date_utc")
-  final int launchDate;
+  final String? launchDate;
   @override
   @JsonKey(name: "launch_success")
-  final bool launchSucceed;
+  final bool? launchSucceed;
   @override
   @JsonKey(name: "mission_id")
-  final List<String> missionId;
+  final List<String>? missionId;
   @override
   @JsonKey(name: "mission_name")
-  final String missionName;
+  final String? missionName;
   @override
-  final LaunchLinks links;
+  final LaunchLinks? links;
   @override
-  final List<String> ships;
+  final List<String>? ships;
   @override
-  final String details;
+  final String? details;
   @override
-  final bool upcoming;
+  final bool? upcoming;
 
   @override
   String toString() {
@@ -392,49 +396,49 @@ class _$_Launch implements _Launch {
 
 abstract class _Launch implements Launch {
   const factory _Launch(
-      {@JsonKey(name: 'launch_year') required int launchYear,
-      @JsonKey(name: "flight_number") required int flightNumber,
-      @JsonKey(name: "is_tentative") required bool isTentative,
-      @JsonKey(name: "launch_date_utc") required int launchDate,
-      @JsonKey(name: "launch_success") required bool launchSucceed,
-      @JsonKey(name: "mission_id") required List<String> missionId,
-      @JsonKey(name: "mission_name") required String missionName,
-      required LaunchLinks links,
-      required List<String> ships,
-      required String details,
-      required bool upcoming}) = _$_Launch;
+      {@JsonKey(name: 'launch_year') String? launchYear,
+      @JsonKey(name: "flight_number") int? flightNumber,
+      @JsonKey(name: "is_tentative") bool? isTentative,
+      @JsonKey(name: "launch_date_utc") String? launchDate,
+      @JsonKey(name: "launch_success") bool? launchSucceed,
+      @JsonKey(name: "mission_id") List<String>? missionId,
+      @JsonKey(name: "mission_name") String? missionName,
+      LaunchLinks? links,
+      List<String>? ships,
+      String? details,
+      bool? upcoming}) = _$_Launch;
 
   factory _Launch.fromJson(Map<String, dynamic> json) = _$_Launch.fromJson;
 
   @override
   @JsonKey(name: 'launch_year')
-  int get launchYear => throw _privateConstructorUsedError;
+  String? get launchYear => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "flight_number")
-  int get flightNumber => throw _privateConstructorUsedError;
+  int? get flightNumber => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "is_tentative")
-  bool get isTentative => throw _privateConstructorUsedError;
+  bool? get isTentative => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "launch_date_utc")
-  int get launchDate => throw _privateConstructorUsedError;
+  String? get launchDate => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "launch_success")
-  bool get launchSucceed => throw _privateConstructorUsedError;
+  bool? get launchSucceed => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "mission_id")
-  List<String> get missionId => throw _privateConstructorUsedError;
+  List<String>? get missionId => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: "mission_name")
-  String get missionName => throw _privateConstructorUsedError;
+  String? get missionName => throw _privateConstructorUsedError;
   @override
-  LaunchLinks get links => throw _privateConstructorUsedError;
+  LaunchLinks? get links => throw _privateConstructorUsedError;
   @override
-  List<String> get ships => throw _privateConstructorUsedError;
+  List<String>? get ships => throw _privateConstructorUsedError;
   @override
-  String get details => throw _privateConstructorUsedError;
+  String? get details => throw _privateConstructorUsedError;
   @override
-  bool get upcoming => throw _privateConstructorUsedError;
+  bool? get upcoming => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LaunchCopyWith<_Launch> get copyWith => throw _privateConstructorUsedError;

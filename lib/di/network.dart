@@ -6,7 +6,7 @@ import 'package:get_it/get_it.dart';
 final GetIt getIt = GetIt.instance;
 
 void init() {
-  getIt.registerFactory(() => Dio()
+  getIt.registerFactory<Dio>(() => Dio()
     ..options = BaseOptions(
       contentType: 'application/json',
       connectTimeout: 10000,
