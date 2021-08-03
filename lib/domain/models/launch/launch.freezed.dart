@@ -21,27 +21,29 @@ class _$LaunchTearOff {
   const _$LaunchTearOff();
 
   _Launch call(
-      {required int launchYear,
-      required int flightNumber,
-      required String missionName,
-      required List<String> missionId,
-      required int launchDate,
-      required bool isTentative,
+      {@JsonKey(name: 'launch_year') required int launchYear,
+      @JsonKey(name: "flight_number") required int flightNumber,
+      @JsonKey(name: "is_tentative") required bool isTentative,
+      @JsonKey(name: "launch_date_utc") required int launchDate,
+      @JsonKey(name: "launch_success") required bool launchSucceed,
+      @JsonKey(name: "mission_id") required List<String> missionId,
+      @JsonKey(name: "mission_name") required String missionName,
+      required LaunchLinks links,
       required List<String> ships,
-      required bool launchSucceed,
       required String details,
-      required bool isUpcoming}) {
+      required bool upcoming}) {
     return _Launch(
       launchYear: launchYear,
       flightNumber: flightNumber,
-      missionName: missionName,
-      missionId: missionId,
-      launchDate: launchDate,
       isTentative: isTentative,
-      ships: ships,
+      launchDate: launchDate,
       launchSucceed: launchSucceed,
+      missionId: missionId,
+      missionName: missionName,
+      links: links,
+      ships: ships,
       details: details,
-      isUpcoming: isUpcoming,
+      upcoming: upcoming,
     );
   }
 
@@ -55,16 +57,24 @@ const $Launch = _$LaunchTearOff();
 
 /// @nodoc
 mixin _$Launch {
+  @JsonKey(name: 'launch_year')
   int get launchYear => throw _privateConstructorUsedError;
+  @JsonKey(name: "flight_number")
   int get flightNumber => throw _privateConstructorUsedError;
-  String get missionName => throw _privateConstructorUsedError;
-  List<String> get missionId => throw _privateConstructorUsedError;
-  int get launchDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_tentative")
   bool get isTentative => throw _privateConstructorUsedError;
-  List<String> get ships => throw _privateConstructorUsedError;
+  @JsonKey(name: "launch_date_utc")
+  int get launchDate => throw _privateConstructorUsedError;
+  @JsonKey(name: "launch_success")
   bool get launchSucceed => throw _privateConstructorUsedError;
+  @JsonKey(name: "mission_id")
+  List<String> get missionId => throw _privateConstructorUsedError;
+  @JsonKey(name: "mission_name")
+  String get missionName => throw _privateConstructorUsedError;
+  LaunchLinks get links => throw _privateConstructorUsedError;
+  List<String> get ships => throw _privateConstructorUsedError;
   String get details => throw _privateConstructorUsedError;
-  bool get isUpcoming => throw _privateConstructorUsedError;
+  bool get upcoming => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -76,16 +86,19 @@ abstract class $LaunchCopyWith<$Res> {
   factory $LaunchCopyWith(Launch value, $Res Function(Launch) then) =
       _$LaunchCopyWithImpl<$Res>;
   $Res call(
-      {int launchYear,
-      int flightNumber,
-      String missionName,
-      List<String> missionId,
-      int launchDate,
-      bool isTentative,
+      {@JsonKey(name: 'launch_year') int launchYear,
+      @JsonKey(name: "flight_number") int flightNumber,
+      @JsonKey(name: "is_tentative") bool isTentative,
+      @JsonKey(name: "launch_date_utc") int launchDate,
+      @JsonKey(name: "launch_success") bool launchSucceed,
+      @JsonKey(name: "mission_id") List<String> missionId,
+      @JsonKey(name: "mission_name") String missionName,
+      LaunchLinks links,
       List<String> ships,
-      bool launchSucceed,
       String details,
-      bool isUpcoming});
+      bool upcoming});
+
+  $LaunchLinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -100,14 +113,15 @@ class _$LaunchCopyWithImpl<$Res> implements $LaunchCopyWith<$Res> {
   $Res call({
     Object? launchYear = freezed,
     Object? flightNumber = freezed,
-    Object? missionName = freezed,
-    Object? missionId = freezed,
-    Object? launchDate = freezed,
     Object? isTentative = freezed,
-    Object? ships = freezed,
+    Object? launchDate = freezed,
     Object? launchSucceed = freezed,
+    Object? missionId = freezed,
+    Object? missionName = freezed,
+    Object? links = freezed,
+    Object? ships = freezed,
     Object? details = freezed,
-    Object? isUpcoming = freezed,
+    Object? upcoming = freezed,
   }) {
     return _then(_value.copyWith(
       launchYear: launchYear == freezed
@@ -118,39 +132,50 @@ class _$LaunchCopyWithImpl<$Res> implements $LaunchCopyWith<$Res> {
           ? _value.flightNumber
           : flightNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      missionName: missionName == freezed
-          ? _value.missionName
-          : missionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      missionId: missionId == freezed
-          ? _value.missionId
-          : missionId // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      launchDate: launchDate == freezed
-          ? _value.launchDate
-          : launchDate // ignore: cast_nullable_to_non_nullable
-              as int,
       isTentative: isTentative == freezed
           ? _value.isTentative
           : isTentative // ignore: cast_nullable_to_non_nullable
               as bool,
-      ships: ships == freezed
-          ? _value.ships
-          : ships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      launchDate: launchDate == freezed
+          ? _value.launchDate
+          : launchDate // ignore: cast_nullable_to_non_nullable
+              as int,
       launchSucceed: launchSucceed == freezed
           ? _value.launchSucceed
           : launchSucceed // ignore: cast_nullable_to_non_nullable
               as bool,
+      missionId: missionId == freezed
+          ? _value.missionId
+          : missionId // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      missionName: missionName == freezed
+          ? _value.missionName
+          : missionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as LaunchLinks,
+      ships: ships == freezed
+          ? _value.ships
+          : ships // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       details: details == freezed
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
-      isUpcoming: isUpcoming == freezed
-          ? _value.isUpcoming
-          : isUpcoming // ignore: cast_nullable_to_non_nullable
+      upcoming: upcoming == freezed
+          ? _value.upcoming
+          : upcoming // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+
+  @override
+  $LaunchLinksCopyWith<$Res> get links {
+    return $LaunchLinksCopyWith<$Res>(_value.links, (value) {
+      return _then(_value.copyWith(links: value));
+    });
   }
 }
 
@@ -160,16 +185,20 @@ abstract class _$LaunchCopyWith<$Res> implements $LaunchCopyWith<$Res> {
       __$LaunchCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int launchYear,
-      int flightNumber,
-      String missionName,
-      List<String> missionId,
-      int launchDate,
-      bool isTentative,
+      {@JsonKey(name: 'launch_year') int launchYear,
+      @JsonKey(name: "flight_number") int flightNumber,
+      @JsonKey(name: "is_tentative") bool isTentative,
+      @JsonKey(name: "launch_date_utc") int launchDate,
+      @JsonKey(name: "launch_success") bool launchSucceed,
+      @JsonKey(name: "mission_id") List<String> missionId,
+      @JsonKey(name: "mission_name") String missionName,
+      LaunchLinks links,
       List<String> ships,
-      bool launchSucceed,
       String details,
-      bool isUpcoming});
+      bool upcoming});
+
+  @override
+  $LaunchLinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -185,14 +214,15 @@ class __$LaunchCopyWithImpl<$Res> extends _$LaunchCopyWithImpl<$Res>
   $Res call({
     Object? launchYear = freezed,
     Object? flightNumber = freezed,
-    Object? missionName = freezed,
-    Object? missionId = freezed,
-    Object? launchDate = freezed,
     Object? isTentative = freezed,
-    Object? ships = freezed,
+    Object? launchDate = freezed,
     Object? launchSucceed = freezed,
+    Object? missionId = freezed,
+    Object? missionName = freezed,
+    Object? links = freezed,
+    Object? ships = freezed,
     Object? details = freezed,
-    Object? isUpcoming = freezed,
+    Object? upcoming = freezed,
   }) {
     return _then(_Launch(
       launchYear: launchYear == freezed
@@ -203,37 +233,41 @@ class __$LaunchCopyWithImpl<$Res> extends _$LaunchCopyWithImpl<$Res>
           ? _value.flightNumber
           : flightNumber // ignore: cast_nullable_to_non_nullable
               as int,
-      missionName: missionName == freezed
-          ? _value.missionName
-          : missionName // ignore: cast_nullable_to_non_nullable
-              as String,
-      missionId: missionId == freezed
-          ? _value.missionId
-          : missionId // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      launchDate: launchDate == freezed
-          ? _value.launchDate
-          : launchDate // ignore: cast_nullable_to_non_nullable
-              as int,
       isTentative: isTentative == freezed
           ? _value.isTentative
           : isTentative // ignore: cast_nullable_to_non_nullable
               as bool,
-      ships: ships == freezed
-          ? _value.ships
-          : ships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      launchDate: launchDate == freezed
+          ? _value.launchDate
+          : launchDate // ignore: cast_nullable_to_non_nullable
+              as int,
       launchSucceed: launchSucceed == freezed
           ? _value.launchSucceed
           : launchSucceed // ignore: cast_nullable_to_non_nullable
               as bool,
+      missionId: missionId == freezed
+          ? _value.missionId
+          : missionId // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      missionName: missionName == freezed
+          ? _value.missionName
+          : missionName // ignore: cast_nullable_to_non_nullable
+              as String,
+      links: links == freezed
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
+              as LaunchLinks,
+      ships: ships == freezed
+          ? _value.ships
+          : ships // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       details: details == freezed
           ? _value.details
           : details // ignore: cast_nullable_to_non_nullable
               as String,
-      isUpcoming: isUpcoming == freezed
-          ? _value.isUpcoming
-          : isUpcoming // ignore: cast_nullable_to_non_nullable
+      upcoming: upcoming == freezed
+          ? _value.upcoming
+          : upcoming // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -243,44 +277,54 @@ class __$LaunchCopyWithImpl<$Res> extends _$LaunchCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Launch implements _Launch {
   const _$_Launch(
-      {required this.launchYear,
-      required this.flightNumber,
-      required this.missionName,
-      required this.missionId,
-      required this.launchDate,
-      required this.isTentative,
+      {@JsonKey(name: 'launch_year') required this.launchYear,
+      @JsonKey(name: "flight_number") required this.flightNumber,
+      @JsonKey(name: "is_tentative") required this.isTentative,
+      @JsonKey(name: "launch_date_utc") required this.launchDate,
+      @JsonKey(name: "launch_success") required this.launchSucceed,
+      @JsonKey(name: "mission_id") required this.missionId,
+      @JsonKey(name: "mission_name") required this.missionName,
+      required this.links,
       required this.ships,
-      required this.launchSucceed,
       required this.details,
-      required this.isUpcoming});
+      required this.upcoming});
 
   factory _$_Launch.fromJson(Map<String, dynamic> json) =>
       _$_$_LaunchFromJson(json);
 
   @override
+  @JsonKey(name: 'launch_year')
   final int launchYear;
   @override
+  @JsonKey(name: "flight_number")
   final int flightNumber;
   @override
-  final String missionName;
+  @JsonKey(name: "is_tentative")
+  final bool isTentative;
   @override
-  final List<String> missionId;
-  @override
+  @JsonKey(name: "launch_date_utc")
   final int launchDate;
   @override
-  final bool isTentative;
+  @JsonKey(name: "launch_success")
+  final bool launchSucceed;
+  @override
+  @JsonKey(name: "mission_id")
+  final List<String> missionId;
+  @override
+  @JsonKey(name: "mission_name")
+  final String missionName;
+  @override
+  final LaunchLinks links;
   @override
   final List<String> ships;
   @override
-  final bool launchSucceed;
-  @override
   final String details;
   @override
-  final bool isUpcoming;
+  final bool upcoming;
 
   @override
   String toString() {
-    return 'Launch(launchYear: $launchYear, flightNumber: $flightNumber, missionName: $missionName, missionId: $missionId, launchDate: $launchDate, isTentative: $isTentative, ships: $ships, launchSucceed: $launchSucceed, details: $details, isUpcoming: $isUpcoming)';
+    return 'Launch(launchYear: $launchYear, flightNumber: $flightNumber, isTentative: $isTentative, launchDate: $launchDate, launchSucceed: $launchSucceed, missionId: $missionId, missionName: $missionName, links: $links, ships: $ships, details: $details, upcoming: $upcoming)';
   }
 
   @override
@@ -293,29 +337,31 @@ class _$_Launch implements _Launch {
             (identical(other.flightNumber, flightNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.flightNumber, flightNumber)) &&
-            (identical(other.missionName, missionName) ||
-                const DeepCollectionEquality()
-                    .equals(other.missionName, missionName)) &&
-            (identical(other.missionId, missionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.missionId, missionId)) &&
-            (identical(other.launchDate, launchDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.launchDate, launchDate)) &&
             (identical(other.isTentative, isTentative) ||
                 const DeepCollectionEquality()
                     .equals(other.isTentative, isTentative)) &&
-            (identical(other.ships, ships) ||
-                const DeepCollectionEquality().equals(other.ships, ships)) &&
+            (identical(other.launchDate, launchDate) ||
+                const DeepCollectionEquality()
+                    .equals(other.launchDate, launchDate)) &&
             (identical(other.launchSucceed, launchSucceed) ||
                 const DeepCollectionEquality()
                     .equals(other.launchSucceed, launchSucceed)) &&
+            (identical(other.missionId, missionId) ||
+                const DeepCollectionEquality()
+                    .equals(other.missionId, missionId)) &&
+            (identical(other.missionName, missionName) ||
+                const DeepCollectionEquality()
+                    .equals(other.missionName, missionName)) &&
+            (identical(other.links, links) ||
+                const DeepCollectionEquality().equals(other.links, links)) &&
+            (identical(other.ships, ships) ||
+                const DeepCollectionEquality().equals(other.ships, ships)) &&
             (identical(other.details, details) ||
                 const DeepCollectionEquality()
                     .equals(other.details, details)) &&
-            (identical(other.isUpcoming, isUpcoming) ||
+            (identical(other.upcoming, upcoming) ||
                 const DeepCollectionEquality()
-                    .equals(other.isUpcoming, isUpcoming)));
+                    .equals(other.upcoming, upcoming)));
   }
 
   @override
@@ -323,14 +369,15 @@ class _$_Launch implements _Launch {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(launchYear) ^
       const DeepCollectionEquality().hash(flightNumber) ^
-      const DeepCollectionEquality().hash(missionName) ^
-      const DeepCollectionEquality().hash(missionId) ^
-      const DeepCollectionEquality().hash(launchDate) ^
       const DeepCollectionEquality().hash(isTentative) ^
-      const DeepCollectionEquality().hash(ships) ^
+      const DeepCollectionEquality().hash(launchDate) ^
       const DeepCollectionEquality().hash(launchSucceed) ^
+      const DeepCollectionEquality().hash(missionId) ^
+      const DeepCollectionEquality().hash(missionName) ^
+      const DeepCollectionEquality().hash(links) ^
+      const DeepCollectionEquality().hash(ships) ^
       const DeepCollectionEquality().hash(details) ^
-      const DeepCollectionEquality().hash(isUpcoming);
+      const DeepCollectionEquality().hash(upcoming);
 
   @JsonKey(ignore: true)
   @override
@@ -345,39 +392,49 @@ class _$_Launch implements _Launch {
 
 abstract class _Launch implements Launch {
   const factory _Launch(
-      {required int launchYear,
-      required int flightNumber,
-      required String missionName,
-      required List<String> missionId,
-      required int launchDate,
-      required bool isTentative,
+      {@JsonKey(name: 'launch_year') required int launchYear,
+      @JsonKey(name: "flight_number") required int flightNumber,
+      @JsonKey(name: "is_tentative") required bool isTentative,
+      @JsonKey(name: "launch_date_utc") required int launchDate,
+      @JsonKey(name: "launch_success") required bool launchSucceed,
+      @JsonKey(name: "mission_id") required List<String> missionId,
+      @JsonKey(name: "mission_name") required String missionName,
+      required LaunchLinks links,
       required List<String> ships,
-      required bool launchSucceed,
       required String details,
-      required bool isUpcoming}) = _$_Launch;
+      required bool upcoming}) = _$_Launch;
 
   factory _Launch.fromJson(Map<String, dynamic> json) = _$_Launch.fromJson;
 
   @override
+  @JsonKey(name: 'launch_year')
   int get launchYear => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: "flight_number")
   int get flightNumber => throw _privateConstructorUsedError;
   @override
-  String get missionName => throw _privateConstructorUsedError;
+  @JsonKey(name: "is_tentative")
+  bool get isTentative => throw _privateConstructorUsedError;
   @override
-  List<String> get missionId => throw _privateConstructorUsedError;
-  @override
+  @JsonKey(name: "launch_date_utc")
   int get launchDate => throw _privateConstructorUsedError;
   @override
-  bool get isTentative => throw _privateConstructorUsedError;
+  @JsonKey(name: "launch_success")
+  bool get launchSucceed => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "mission_id")
+  List<String> get missionId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: "mission_name")
+  String get missionName => throw _privateConstructorUsedError;
+  @override
+  LaunchLinks get links => throw _privateConstructorUsedError;
   @override
   List<String> get ships => throw _privateConstructorUsedError;
   @override
-  bool get launchSucceed => throw _privateConstructorUsedError;
-  @override
   String get details => throw _privateConstructorUsedError;
   @override
-  bool get isUpcoming => throw _privateConstructorUsedError;
+  bool get upcoming => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LaunchCopyWith<_Launch> get copyWith => throw _privateConstructorUsedError;

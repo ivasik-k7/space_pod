@@ -43,19 +43,21 @@ dependencies:
     json_annotation: ^4.1.0
     json_serializable: ^4.1.4
     retrofit: any
+    get_it: ^7.2.0
 
 dev_dependencies:
     # flutter_test:
     #     sdk: flutter
     retrofit_generator: any
     build_runner: any
+    pretty_dio_logger: ^1.1.1
 
     # The "flutter_lints" package below contains a set of recommended lints to
     # encourage good coding practices. The lint set provided by the package is
     # activated in the `analysis_options.yaml` file located at the root of your
     # package. See that file for information about deactivating specific lint
     # rules and activating additional ones.
-    flutter_lints: ^1.0.0
+    # flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

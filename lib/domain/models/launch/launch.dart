@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'launch_links.dart';
 
 part 'launch.freezed.dart';
 part 'launch.g.dart';
@@ -6,16 +7,17 @@ part 'launch.g.dart';
 @freezed
 abstract class Launch with _$Launch {
   const factory Launch({
-    required int launchYear,
-    required int flightNumber,
-    required String missionName,
-    required List<String> missionId,
-    required int launchDate,
-    required bool isTentative,
+    @JsonKey(name: 'launch_year') required int launchYear,
+    @JsonKey(name: "flight_number") required int flightNumber,
+    @JsonKey(name: "is_tentative") required bool isTentative,
+    @JsonKey(name: "launch_date_utc") required int launchDate,
+    @JsonKey(name: "launch_success") required bool launchSucceed,
+    @JsonKey(name: "mission_id") required List<String> missionId,
+    @JsonKey(name: "mission_name") required String missionName,
+    required LaunchLinks links,
     required List<String> ships,
-    required bool launchSucceed,
     required String details,
-    required bool isUpcoming,
+    required bool upcoming,
   }) = _Launch;
 
   factory Launch.fromJson(Map<String, dynamic> json) => _$LaunchFromJson(json);
